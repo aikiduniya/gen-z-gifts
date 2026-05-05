@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { api } from '@/lib/api';
 import { ScrollReveal } from './animations';
 import { ChevronLeft, ChevronRight, Package } from 'lucide-react';
+import BundleDialog from './BundleDialog';
 
 interface Bundle {
   id: string;
@@ -15,6 +16,8 @@ interface Bundle {
 
 const BundleSlider = () => {
   const [bundles, setBundles] = useState<Bundle[]>([]);
+  const [activeBundle, setActiveBundle] = useState<Bundle | null>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -31,9 +34,9 @@ const BundleSlider = () => {
     scrollRef.current.scrollBy({ left: dir === 'left' ? -amount : amount, behavior: 'smooth' });
   };
 
-  const handleSelect = () => {
-    const el = document.getElementById('customize');
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const handleSelect = (bundle: Bundle) => {
+    setActiveBundle(bundle);
+    setDialogOpen(true);
   };
 
   if (bundles.length === 0) return null;
@@ -82,7 +85,7 @@ const BundleSlider = () => {
             {bundles.map((bundle, i) => (
               <motion.button
                 key={bundle.id}
-                onClick={handleSelect}
+                onClick={() => handleSelect(bundle)}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05, duration: 0.3 }}
@@ -113,6 +116,7 @@ const BundleSlider = () => {
           </div>
         </div>
       </div>
+      <BundleDialog bundle={activeBundle} open={dialogOpen} onOpenChange={setDialogOpen} />
     </section>
   );
 };
