@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home Page -->
+  <url>
+    <loc>https://genzgifts.com/</loc>
+    <lastmod>2025-01-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Gift Detail Pages - Add individual gift pages here dynamically or via script -->
+  <!-- Example: <url><loc>https://genzgifts.com/gift/custom-gift-slug</loc><changefreq>weekly</changefreq><priority>0.8</priority></url> -->
+
+  <!-- Checkout Page -->
+  <url>
+    <loc>https://genzgifts.com/checkout</loc>
+    <lastmod>2025-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Order Confirmation Page -->
+  <url>
+    <loc>https://genzgifts.com/order-confirmation/:orderId</loc>
+    <lastmod>2025-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Track Order Page -->
+  <url>
+    <loc>https://genzgifts.com/track-order</loc>
+    <lastmod>2025-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+</urlset>
